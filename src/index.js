@@ -3,16 +3,16 @@ import "./styles.css";
 var turn = 1;
 var gameOver = 0;
 
-var gameField = [
-  [0, 0, 0, 0, 0],
-  [0, 2, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0]
+var field = [
+  ["", "", "h", "", ""],
+  ["", "", "", "", ""],
+  ["", "", "", "", ""],
+  ["", "", "", "", ""],
+  ["", "", "", "", ""]
 ];
 
 // access gameField
-// console.log(gameField[1][1]);
+console.log(field[0][2]);
 
 if (document.readyState !== "loading") {
   // Document ready, executing
@@ -31,23 +31,29 @@ function initializeCode() {
   const boardi = document.getElementById("board");
 
   // cells creation
-  for (var j = 0; j <= 4; j++) {
+  for (var j = 0; j <= 5; j++) {
     // table row creation
     var row = document.createElement("tr");
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
       // create element <td> and text node
       //Make text node the contents of <td> element
       // put <td> at end of the table row
       var cell = document.createElement("td");
-      var cellText = document.createTextNode("r" + j + ",c" + i);
+      var cellText = document.createTextNode("");
 
       cell.appendChild(cellText);
+      cell.setAttribute("height", "40");
+      cell.setAttribute("width", "40");
+      cell.setAttribute("id", i + "" + j);
+      cell.addEventListener("click", move);
+      //console.log(i,j)
       row.appendChild(cell);
     }
 
     //row added to end of table body
     boardi.appendChild(row);
+    boardi.setAttribute("border", "2");
   }
 
   // append the <tbody> inside the <table>
@@ -67,6 +73,11 @@ function initializeCode() {
 }
 
 document.getElementById("turn").innerHTML = "<h2>testihng</h2>";
+
+function move() {
+  if ((gameOver = 0 || turn === 1)) {
+  }
+}
 
 var checkWinner = function() {
   var p1 = 0;
