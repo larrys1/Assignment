@@ -39,13 +39,14 @@ function initializeCode() {
       // table TD with textnode
       var cell = document.createElement("TD");
       var cellTxtNode = document.createTextNode("");
-      cell.appendChild(cellTxtNode);
       cell.setAttribute("height", "40");
       cell.setAttribute("width", "40");
+      cell.setAttribute("align", "center");
       // Attribute for each cell
       cell.setAttribute("id", i + "" + j);
       // Event listener for clicks
       cell.addEventListener("click", move);
+      cell.appendChild(cellTxtNode);
       //TD append to TR
       row.appendChild(cell);
     }
