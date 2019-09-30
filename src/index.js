@@ -27,8 +27,8 @@ if (document.readyState !== "loading") {
 // BASED ON LECTURE EXAMPLE
 function initializeCode() {
   console.log("Initializing");
-  //document.getElementById("info").innerHTML = "<h2>P1:x P2:o</h2>";
-  //document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
+  document.getElementById("info").innerHTML = "<h2>P1:x P2:o</h2>";
+  document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
   const boardi = document.getElementById("board");
 
   // Create table (logic influenced by internet sources)
@@ -62,13 +62,13 @@ function move() {
   if (gameOver === 0 && turn === 1 && this.innerHTML === "") {
     this.innerHTML = "x";
     field[parseInt(this.id[0], 10)][parseInt(this.id[1], 10)] = "x";
-    //document.getElementById("turn").innerHTML = "<h2>Turn of Player 2 (o)</h2>";
+    document.getElementById("turn").innerHTML = "<h2>Turn of Player 2 (o)</h2>";
     turn = 2;
     checkWinner();
   } else if (gameOver === 0 && turn === 2 && this.innerHTML === "") {
     this.innerHTML = "o";
     field[parseInt(this.id[0], 10)][parseInt(this.id[1], 10)] = "o";
-    //document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
+    document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
     turn = 1;
     checkWinner();
   }
@@ -88,12 +88,14 @@ var checkWinner = function() {
         p2++;
       }
       if (p1 === 5) {
-        //document.getElementById("turn").innerHTML = "<h2>Player 1 (x) wins!</h2>";
+        document.getElementById("turn").innerHTML =
+          "<h2>Player 1 (x) wins!</h2>";
         alert("Player 1 won!");
         gameOver = 1;
         //return "player 1 won";
       } else if (p2 === 5) {
-        //document.getElementById("turn").innerHTML ="<h2>Player 2 (o) wins!</h2>";
+        document.getElementById("turn").innerHTML =
+          "<h2>Player 2 (o) wins!</h2>";
         alert("Player 2 won!");
         gameOver = 1;
         //return "player 2 won";
@@ -110,12 +112,14 @@ var checkWinner = function() {
         p2++;
       }
       if (p1 === 5) {
-        //document.getElementById("turn").innerHTML ="<h2>Player 1 (x) wins!</h2>";
+        document.getElementById("turn").innerHTML =
+          "<h2>Player 1 (x) wins!</h2>";
         alert("Player 1 won!");
         gameOver = 1;
         //return "player 1 won";
       } else if (p2 === 5) {
-        //document.getElementById("turn").innerHTML ="<h2>Player 2 (o) wins!</h2>";
+        document.getElementById("turn").innerHTML =
+          "<h2>Player 2 (o) wins!</h2>";
         alert("Player 2 won!");
         gameOver = 1;
         //return "player 2 won";
@@ -131,12 +135,12 @@ var checkWinner = function() {
       p2++;
     }
     if (p1 === 5) {
-      //document.getElementById("turn").innerHTML = "<h2>Player 1 (x) wins!</h2>";
+      document.getElementById("turn").innerHTML = "<h2>Player 1 (x) wins!</h2>";
       alert("Player 1 won!");
       gameOver = 1;
       //return "player 1 won";
     } else if (p2 === 5) {
-      //document.getElementById("turn").innerHTML = "<h2>Player 2 (o) wins!</h2>";
+      document.getElementById("turn").innerHTML = "<h2>Player 2 (o) wins!</h2>";
       alert("Player 2 won!");
       gameOver = 1;
       //return "player 2 won";
@@ -151,13 +155,13 @@ var checkWinner = function() {
       p2++;
     }
     if (p1 === 5) {
-      //document.getElementById("turn").innerHTML = "<h2>Player 1 (x) wins!</h2>";
+      document.getElementById("turn").innerHTML = "<h2>Player 1 (x) wins!</h2>";
       alert("Player 1 won!");
       gameOver = 1;
 
       //return "player 1 won";
     } else if (p2 === 5) {
-      //document.getElementById("turn").innerHTML = "<h2>Player 2 (o) wins!</h2>";
+      document.getElementById("turn").innerHTML = "<h2>Player 2 (o) wins!</h2>";
       alert("Player 2 won!");
       gameOver = 1;
       //return "player 2 won";
