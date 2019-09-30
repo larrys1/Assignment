@@ -11,6 +11,7 @@ var field = [
   ["", "", "", "", ""]
 ];
 
+// THIS IS STRAIGHT FROM LECTURE EXAMPLE
 if (document.readyState !== "loading") {
   // Document ready, executing
   console.log("Document ready, executing");
@@ -23,55 +24,36 @@ if (document.readyState !== "loading") {
   });
 }
 
+// BASED ON LECTURE EXAMPLE
 function initializeCode() {
   console.log("Initializing");
+  document.getElementById("info").innerHTML = "<h2>P1:x P2:o</h2>";
+  document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
   const boardi = document.getElementById("board");
 
-  // cells creation
+  // Create table
   for (var i = 0; i <= 4; i++) {
-    // table row creation
-    var row = document.createElement("tr");
-
+    // table row TR
+    var row = document.createElement("TR");
     for (var j = 0; j <= 4; j++) {
-      // create element <td> and text node
-      //Make text node the contents of <td> element
-      // put <td> at end of the table row
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode("");
-
-      cell.appendChild(cellText);
+      // table TD with textnode
+      var cell = document.createElement("TD");
+      var cellTxtNode = document.createTextNode("");
+      cell.appendChild(cellTxtNode);
       cell.setAttribute("height", "40");
       cell.setAttribute("width", "40");
-      //cell.setAttribute("id", i + "" + j);
+      // Attribute for each cell
       cell.setAttribute("id", i + "" + j);
+      // Event listener for clicks
       cell.addEventListener("click", move);
-      //console.log(i,j)
+      //TD append to TR
       row.appendChild(cell);
     }
-
-    //row added to end of table body
+    //TR append to TABLE, border needed also
     boardi.appendChild(row);
-    boardi.setAttribute("border", "2");
+    boardi.setAttribute("border", "1");
   }
-
-  // append the <tbody> inside the <table>
-  //tbl.appendChild(tblBody);
-
-  //const boardi = document.getElementById("board");
-  //const node = document.CreateElement("TR"); // create a <TR> node
-  //const textnode = documentTextNode(content); // Create a text node
-  //node.appendChild(textnode); // Append the text to <li>
-  //document.getElementById("thislist").appendChild(node);
-
-  //  button.addEventListener("mousedown", event => {
-  //    buttonActivities();
-  //    event.stopPropagation();
-  // }
-  //);
 }
-
-document.getElementById("info").innerHTML = "<h2>Player 1: x, Player 2:o</h2>";
-document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
 
 function move() {
   if (gameOver === 0 && turn === 1 && this.innerHTML === "") {
