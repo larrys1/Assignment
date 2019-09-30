@@ -31,7 +31,7 @@ function initializeCode() {
   document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
   const boardi = document.getElementById("board");
 
-  // Create table
+  // Create table (logic influenced by internet sources)
   for (var i = 0; i <= 4; i++) {
     // table row TR
     var row = document.createElement("TR");
@@ -56,6 +56,8 @@ function initializeCode() {
 }
 
 function move() {
+  // ADDING a move to TABLE and Array
+  //
   if (gameOver === 0 && turn === 1 && this.innerHTML === "") {
     this.innerHTML = "x";
     field[parseInt(this.id[0], 10)][parseInt(this.id[1], 10)] = "x";
@@ -72,6 +74,7 @@ function move() {
 }
 
 function printField() {
+  // ONLY FOR TESTING
   for (var i in field) {
     console.log("row " + i);
     for (var j in field[i]) {
@@ -81,6 +84,8 @@ function printField() {
 }
 
 var checkWinner = function() {
+  // DUCT TAPE AND CHEWING GUM FOR CHECKING WINNER
+  // Checks ROWS, COLUMNS and 2 DIAGONAL possibilities
   var p1 = 0;
   var p2 = 0;
 
@@ -173,7 +178,6 @@ var checkWinner = function() {
   }
   p1 = 0;
   p2 = 0;
-  if (gameOver === 1) {
-  }
+
   return "no winner";
 };
