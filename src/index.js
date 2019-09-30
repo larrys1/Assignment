@@ -13,6 +13,12 @@ var field = [
 
 // access gameField
 console.log(field[0][2]);
+//for (var i in field) {
+//console.log("row " + i);
+//for (var j in field[i]) {
+//  console.log(" " + field[i][j]);
+// }
+//}
 
 if (document.readyState !== "loading") {
   // Document ready, executing
@@ -31,11 +37,11 @@ function initializeCode() {
   const boardi = document.getElementById("board");
 
   // cells creation
-  for (var j = 0; j <= 5; j++) {
+  for (var i = 0; i <= 5; i++) {
     // table row creation
     var row = document.createElement("tr");
 
-    for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
       // create element <td> and text node
       //Make text node the contents of <td> element
       // put <td> at end of the table row
@@ -45,6 +51,7 @@ function initializeCode() {
       cell.appendChild(cellText);
       cell.setAttribute("height", "40");
       cell.setAttribute("width", "40");
+      //cell.setAttribute("id", i + "" + j);
       cell.setAttribute("id", i + "" + j);
       cell.addEventListener("click", move);
       //console.log(i,j)
@@ -72,10 +79,29 @@ function initializeCode() {
   //);
 }
 
-document.getElementById("turn").innerHTML = "<h2>testihng</h2>";
+document.getElementById("turn").innerHTML = "<h2>Player 1: x, Player 2:o</h2>";
 
 function move() {
   if ((gameOver = 0 || turn === 1)) {
+    this.innerHTML = "x";
+    //console.log();
+    //field((parseInt(this.id[0], 10)[parseInt(this.id[1], 10)] = "x"));
+    field[parseInt(this.id[0], 10)][parseInt(this.id[1], 10)] = "x";
+    //printField();
+    checkWinner();
+    turn = 2;
+
+    //var i = this.id;
+    //console.log(this.id[0]+this.id[1]);
+  }
+}
+
+function printField() {
+  for (var i in field) {
+    console.log("row " + i);
+    for (var j in field[i]) {
+      console.log(" " + field[i][j]);
+    }
   }
 }
 
