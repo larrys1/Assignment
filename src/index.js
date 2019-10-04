@@ -149,9 +149,9 @@ var checkWinner = function() {
   p1 = 0;
   p2 = 0;
   for (var k = 0; k < 5; k++) {
-    if (field[2 - k][0 + k] === "x") {
+    if (field[4 - k][0 + k] === "x") {
       p1++;
-    } else if (field[2 - k][0 + k] === "o") {
+    } else if (field[4 - k][0 + k] === "o") {
       p2++;
     }
     if (p1 === 5) {
