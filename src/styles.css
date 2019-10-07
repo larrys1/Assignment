@@ -2,6 +2,19 @@ body {
   font-family: Helvetica;
 }
 
+div {
+  font-size: 18px;
+  line-height: 1.3em;
+  vertical-align: top;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  padding: 1em;
+  box-sizing: border-box;
+  width: 48%;
+  background: lightgreen;
+  border: solid green 1px;
+}
+
 table,
 th,
 td {

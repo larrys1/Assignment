@@ -2,6 +2,8 @@ import "./styles.css";
 
 var turn = 1;
 var gameOver = 0;
+var timer = 0;
+var intervalId = 0;
 
 var field = [
   ["", "", "", "", ""],
@@ -55,18 +57,57 @@ function initializeCode() {
 function move() {
   // ADDING a move to TABLE and Array
   //
+  if (timer === 1) {
+    clearInterval(intervalId);
+    timer = 0;
+  }
+
   if (gameOver === 0 && turn === 1 && this.innerHTML === "") {
+    progress();
     this.innerHTML = "x";
     field[parseInt(this.id[0], 10)][parseInt(this.id[1], 10)] = "x";
+    const att = document.createAttribute("class");
+    att.value = "cellgreen";
+    this.setAttributeNode(att);
     document.getElementById("turn").innerHTML = "<h2>Turn of Player 2 (o)</h2>";
     turn = 2;
     checkWinner();
   } else if (gameOver === 0 && turn === 2 && this.innerHTML === "") {
+    progress();
     this.innerHTML = "o";
     field[parseInt(this.id[0], 10)][parseInt(this.id[1], 10)] = "o";
+    const att = document.createAttribute("class");
+    att.value = "cellred";
+    this.setAttributeNode(att);
     document.getElementById("turn").innerHTML = "<h2>Turn of Player 1 (x)</h2>";
     turn = 1;
     checkWinner();
+  }
+}
+
+function progress() {
+  timer = 1;
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  intervalId = setInterval(frame, 100);
+  function frame() {
+    if (timer === 1 && width >= 100) {
+      clearInterval(intervalId);
+      if (gameOver === 0 && turn === 1) {
+        turn = 2;
+        document.getElementById("turn").innerHTML =
+          "<h2>Turn of Player 2 (o)</h2>";
+        progress();
+      } else if (gameOver === 0 && turn === 2) {
+        turn = 1;
+        document.getElementById("turn").innerHTML =
+          "<h2>Turn of Player 1 (x)</h2>";
+        progress();
+      }
+    } else {
+      width++;
+      elem.style.width = width + "%";
+    }
   }
 }
 
