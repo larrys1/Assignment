@@ -3,16 +3,20 @@ body {
 }
 
 div {
+  width: 48%;
+}
+
+.normaldiv {
   font-size: 18px;
   line-height: 1.3em;
   vertical-align: top;
-  margin-bottom: 1em;
-  border-radius: 0.5em;
-  padding: 1em;
   box-sizing: border-box;
-  width: 48%;
+
   background: lightgreen;
   border: solid green 1px;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
 }
 
 table,
@@ -37,4 +41,18 @@ td {
 
 .cellred {
   background-color: rgb(250, 128, 114);
+}
+
+.w3-light-grey,
+.w3-hover-light-grey:hover,
+.w3-light-gray,
+.w3-hover-light-gray:hover {
+  color: #000 !important;
+  background-color: #f1f1f1 !important;
+}
+
+.w3-green,
+.w3-hover-green:hover {
+  color: #fff !important;
+  background-color: #4caf50 !important;
 }
