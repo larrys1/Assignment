@@ -39,9 +39,6 @@ function initializeCode() {
       // table TD with textnode
       var cell = document.createElement("TD");
       var cellTxtNode = document.createTextNode("");
-      cell.setAttribute("height", "40");
-      cell.setAttribute("width", "40");
-      cell.setAttribute("align", "center");
       // Attribute for each cell
       cell.setAttribute("id", i + "" + j);
       // Event listener for clicks
@@ -52,7 +49,6 @@ function initializeCode() {
     }
     //TR append to TABLE, border needed also
     boardi.appendChild(row);
-    boardi.setAttribute("border", "1");
   }
 }
 
