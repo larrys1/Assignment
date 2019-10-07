@@ -85,32 +85,30 @@ function move() {
 }
 
 function progress() {
-  if (timer === 0) {
-    timer = 1;
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    clearInterval(intervalId);
-    intervalId = setInterval(frame, 100);
-    function frame() {
-      if (timer === 1 && width >= 100) {
-        clearInterval(intervalId);
-        if (gameOver === 0 && turn === 1) {
-          turn = 2;
-          document.getElementById("turn").innerHTML =
-            "<h2>Turn of Player 2 (o)</h2>";
-          timer = 0;
-          progress();
-        } else if (gameOver === 0 && turn === 2) {
-          turn = 1;
-          document.getElementById("turn").innerHTML =
-            "<h2>Turn of Player 1 (x)</h2>";
-          timer = 0;
-          progress();
-        }
-      } else {
-        width++;
-        elem.style.width = width + "%";
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  clearInterval(intervalId);
+  intervalId = setInterval(frame, 100);
+  timer = 1;
+  function frame() {
+    if (width >= 100) {
+      clearInterval(intervalId);
+      if (gameOver === 0 && turn === 1) {
+        turn = 2;
+        document.getElementById("turn").innerHTML =
+          "<h2>Turn of Player 2 (o)</h2>";
+
+        progress();
+      } else if (gameOver === 0 && turn === 2) {
+        turn = 1;
+        document.getElementById("turn").innerHTML =
+          "<h2>Turn of Player 1 (x)</h2>";
+
+        progress();
       }
+    } else {
+      width++;
+      elem.style.width = width + "%";
     }
   }
 }
@@ -133,12 +131,14 @@ var checkWinner = function() {
           "<h2>Player 1 (x) wins!</h2>";
         alert("Player 1 won!");
         gameOver = 1;
+        clearInterval(intervalId);
         //return "player 1 won";
       } else if (p2 === 5) {
         document.getElementById("turn").innerHTML =
           "<h2>Player 2 (o) wins!</h2>";
         alert("Player 2 won!");
         gameOver = 1;
+        clearInterval(intervalId);
         //return "player 2 won";
       }
     }
@@ -157,12 +157,14 @@ var checkWinner = function() {
           "<h2>Player 1 (x) wins!</h2>";
         alert("Player 1 won!");
         gameOver = 1;
+        clearInterval(intervalId);
         //return "player 1 won";
       } else if (p2 === 5) {
         document.getElementById("turn").innerHTML =
           "<h2>Player 2 (o) wins!</h2>";
         alert("Player 2 won!");
         gameOver = 1;
+        clearInterval(intervalId);
         //return "player 2 won";
       }
     }
@@ -179,11 +181,13 @@ var checkWinner = function() {
       document.getElementById("turn").innerHTML = "<h2>Player 1 (x) wins!</h2>";
       alert("Player 1 won!");
       gameOver = 1;
+      clearInterval(intervalId);
       //return "player 1 won";
     } else if (p2 === 5) {
       document.getElementById("turn").innerHTML = "<h2>Player 2 (o) wins!</h2>";
       alert("Player 2 won!");
       gameOver = 1;
+      clearInterval(intervalId);
       //return "player 2 won";
     }
   }
@@ -199,12 +203,14 @@ var checkWinner = function() {
       document.getElementById("turn").innerHTML = "<h2>Player 1 (x) wins!</h2>";
       alert("Player 1 won!");
       gameOver = 1;
+      clearInterval(intervalId);
 
       //return "player 1 won";
     } else if (p2 === 5) {
       document.getElementById("turn").innerHTML = "<h2>Player 2 (o) wins!</h2>";
       alert("Player 2 won!");
       gameOver = 1;
+      clearInterval(intervalId);
       //return "player 2 won";
     }
   }
